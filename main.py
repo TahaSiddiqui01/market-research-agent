@@ -24,29 +24,24 @@ class ProductReviewsAgent():
             add_name_to_instructions=True,
             tools=[get_product_reviews],
             show_tool_calls=True,
-            instructions=dedent("""
-                    I will give you multiple product reviews that include pros, cons, and the problem the product is solving. 
-                    The reviews are in the format of array of object objects are turstpilot and g2 reviews which contain the user reviews as the array of object. 
-                    Your job is to:
-
-                    Extract useful insights from these reviews.
-
-                    Identify recurring pain points users mention.
-
-                    Highlight the top features users love and features they hate or wish were better.
-
-                    Understand what problem the product solves, and how effectively it solves it.
-
-                    Give a concise summary answering:
-
-                    Should I build a similar product?
-
-                    What features must my version have?
-
-                    What differentiators or improvements would make it stand out?
-
-                    Only give insights that are actionable and backed by patterns in the reviews. Be objective, avoid fluff, and think like a startup founder validating a new idea.
-            """),
+            instructions=dedent( """
+            I will give you multiple product reviews that include pros, cons, and the problem the product is solving. 
+            The reviews are in the format of an array of objects containing TrustPilot and G2 reviews.
+            
+            Your job is to:
+            1. Extract useful insights from these reviews.
+            2. Identify recurring pain points users mention.
+            3. Highlight the top features users love and features they hate or wish were better.
+            4. Understand what problem the product solves, and how effectively it solves it.
+            
+            Give a concise summary answering:
+            - Should I build a similar product?
+            - What features must my version have?
+            - What differentiators or improvements would make it stand out?
+            
+            Only give insights that are actionable and backed by patterns in the reviews. 
+            Be objective, avoid fluff, and think like a startup founder validating a new idea.
+        """),
         )
 
         return agent
